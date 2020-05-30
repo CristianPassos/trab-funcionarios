@@ -9,13 +9,13 @@ public class Programa {
 		Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         
-        String funcionario;
+        String funcionario, auxFuncionario;
         char digitOutro = 'S';
-        double vlrHora;
-        int horasTrab;
+        double vlrHora, valorTotalHoras = 0, auxValorHora = 0 ;
+        int horasTrab, totalHoras = 0, auxHoras = 0, opcao = 1   ;
         while (digitOutro == 'S') {
         System.out.println("Nome: ");
-        funcionario = sc.nextLine();
+        funcionario = sc.next();
         
         System.out.println("Horas trabalhadas: ");
         horasTrab = sc.nextInt();
@@ -24,24 +24,49 @@ public class Programa {
         	horasTrab = sc.nextInt();			
 		}
         System.out.println("Valor por hora: ");
-        vlrHora = sc.nextDouble();        
-       
+        vlrHora = sc.nextDouble();
         while (vlrHora < 0) {
         	System.out.println("O valor da hora não deve ser negativa. Tente novamente: ");
         	vlrHora = sc.nextDouble();			
 		}
-        System.out.println("Digitar outro (S/N)? ");
-        digitOutro = sc.next().charAt(0);
         
-        }
-        System.out.println("MENU:");
-		System.out.println("1 - Total de horas trabalhadas ");
-		System.out.println("2 - Custo total ");
-		System.out.println("3 - Nome da pessoa que ganhou mais ");
-		System.out.println("4 - Sair ");
-		
-		sc.close();
+        totalHoras += vlrHora;
+		valorTotalHoras += vlrHora * horasTrab;
+		if (vlrHora * horasTrab > auxValorHora * auxHoras) {
+			auxFuncionario = funcionario;
+		}
 
+		auxHoras = horasTrab;
+		auxHoras = totalHoras;
+		
+        System.out.println("Digitar outro (S/N)? ");
+        digitOutro = sc.next().charAt(0);        
+        }		
+        
+        while (opcao < 4) {
+			System.out.println();
+			System.out.println("MENU");
+			System.out.println("1 - Total de horas trabalhadas");
+			System.out.println("2 - Custo total");
+			System.out.println("3 - Nome da pessoa que ganhou mais");
+			System.out.println("4 - Sair");
+			System.out.println("Digite uma opcão: ");
+			opcao = sc.nextInt();
+			while (opcao < 1 || opcao > 4) {
+				System.out.println();
+				System.out.println("OPÇÃO INVÁLIDA! ");
+
+				System.out.println();
+				System.out.println("MENU");
+				System.out.println("1 - Total de horas trabalhadas");
+				System.out.println("2 - Custo total");
+				System.out.println("3 - Nome da pessoa que ganhou mais");
+				System.out.println("4 - Sair");
+				System.out.println("Digite uma opcão: ");
+				opcao = sc.nextInt();
+			}
+		}
+		
 	}
 
 }
