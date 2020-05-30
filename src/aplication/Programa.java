@@ -80,7 +80,7 @@ public class Programa {
 				System.out.println("FIM DO PROGRAMA! ");
 			}
 		}
-		
+        sc.close();
 	}
 
 }
