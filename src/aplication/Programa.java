@@ -9,7 +9,7 @@ public class Programa {
 		Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         
-        String funcionario, auxFuncionario;
+        String funcionario, auxFuncionario = null;
         char digitOutro = 'S';
         double vlrHora, valorTotalHoras = 0, auxValorHora = 0 ;
         int horasTrab, totalHoras = 0, auxHoras = 0, opcao = 1   ;
@@ -64,6 +64,20 @@ public class Programa {
 				System.out.println("4 - Sair");
 				System.out.println("Digite uma opcão: ");
 				opcao = sc.nextInt();
+			}
+			
+			if (opcao == 1) {
+				System.out.println();
+				System.out.println("Total de horas = " + totalHoras);
+			} else if (opcao == 2) {
+				System.out.println();
+				System.out.printf("Custo total = R$ %.2f%n", valorTotalHoras);
+			} else if (opcao == 3) {
+				System.out.println();
+				System.out.println("Pessoa que ganhou mais: " + auxFuncionario);
+			} else {
+				System.out.println();
+				System.out.println("FIM DO PROGRAMA! ");
 			}
 		}
 		
